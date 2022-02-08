@@ -36,6 +36,6 @@
   "keep_every": 72,
 
   "name": "GPT3_6B_short_desc",
-  "wandb_project": "mesh-transformer-jax",
+  "wandb_project": "educated-ether",
   "comment": ""
 }
