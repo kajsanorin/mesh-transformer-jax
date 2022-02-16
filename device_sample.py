@@ -85,7 +85,8 @@ if __name__ == "__main__":
 
         while True:
             context = input("Type input:")
-            tokens = tokenizer.encode(context)
+            split = context.split(';')
+            tokens = tokenizer.encode(context[2])
 
             start = time.time()
 
@@ -96,8 +97,11 @@ if __name__ == "__main__":
             batched_tokens = np.array([padded_tokens] * total_batch)
             length = np.ones(total_batch, dtype=np.uint32) * len(tokens)
 
-            output = network.generate(batched_tokens, length, 512, {"top_p": np.ones(total_batch) * 0.9,
-                                                                    "temp": np.ones(total_batch) * 0.75})
+            top_p = float(context[0])
+            temp = float(context[1])
+
+            output = network.generate(batched_tokens, length, 512, {"top_p": np.ones(total_batch) * top_p,
+                                                                    "temp": np.ones(total_batch) * temp})
 
             for idx, o in enumerate(output[1][0][:, :, 0]):
                 print(f"sample {idx}: {repr(tokenizer.decode(o))}")
