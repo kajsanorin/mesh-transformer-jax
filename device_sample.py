@@ -1,6 +1,7 @@
 import argparse
 import json
 import time
+import datetime
 
 import jax
 import numpy as np
@@ -14,6 +15,8 @@ import transformers
 from smart_open import open
 
 from mesh_transformer.util import clip_by_global_norm
+
+print('Started:', datetime.datetime.now())
 
 
 def parse_args():
@@ -86,7 +89,7 @@ if __name__ == "__main__":
         while True:
             context = input("Type input:")
             split = context.split(';')
-            tokens = tokenizer.encode(context[2])
+            tokens = tokenizer.encode(split[2])
 
             start = time.time()
 
@@ -97,8 +100,8 @@ if __name__ == "__main__":
             batched_tokens = np.array([padded_tokens] * total_batch)
             length = np.ones(total_batch, dtype=np.uint32) * len(tokens)
 
-            top_p = float(context[0])
-            temp = float(context[1])
+            top_p = float(split[0])
+            temp = float(split[1])
 
             output = network.generate(batched_tokens, length, 512, {"top_p": np.ones(total_batch) * top_p,
                                                                     "temp": np.ones(total_batch) * temp})
