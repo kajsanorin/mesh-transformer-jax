@@ -10,7 +10,7 @@
   "seq": 2048,
   "cores_per_replica": 8,
   "per_replica_batch": 1,
-  "gradient_accumulation_steps": 16,
+  "gradient_accumulation_steps": 8,
 
   "warmup_steps": 1,
   "anneal_steps": 1,
@@ -22,7 +22,7 @@
   "tpu_size": 8,
 
   "bucket": "educated-ether-gpt-j-6b",
-  "model_dir": "model-dir/1",
+  "model_dir": "model-dir/2",
 
   "train_set": "short-desc.train.index",
   "val_set": {},
