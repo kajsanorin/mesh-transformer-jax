@@ -13,16 +13,16 @@
   "gradient_accumulation_steps": 8,
 
   "warmup_steps": 1,
-  "anneal_steps": 2,
+  "anneal_steps": 3,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
-  "total_steps": 3,
+  "total_steps": 4,
 
   "tpu_size": 8,
 
   "bucket": "educated-ether-gpt-j-6b",
-  "model_dir": "model-dir/4",
+  "model_dir": "model-dir/5",
 
   "train_set": "shortdesc-scene.train.index",
   "val_set": {},
@@ -35,7 +35,7 @@
   "ckpt_every": 1,
   "keep_every": 10,
 
-  "name": "GPT3_6B_shortdesc_scene",
+  "name": "GPT3_6B_shortdesc_scene_1",
   "wandb_project": "educated-ether",
   "comment": ""
 }
