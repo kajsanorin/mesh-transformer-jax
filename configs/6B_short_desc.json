@@ -12,8 +12,8 @@
   "per_replica_batch": 1,
   "gradient_accumulation_steps": 8,
 
-  "warmup_steps": 1,
-  "anneal_steps": 1,
+  "warmup_steps": 2,
+  "anneal_steps": 0,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
@@ -22,7 +22,7 @@
   "tpu_size": 8,
 
   "bucket": "educated-ether-gpt-j-6b",
-  "model_dir": "model-dir/2",
+  "model_dir": "model-dir/3",
 
   "train_set": "short-desc.train.index",
   "val_set": {},
@@ -35,7 +35,7 @@
   "ckpt_every": 1,
   "keep_every": 10,
 
-  "name": "GPT3_6B_short_desc_1",
+  "name": "GPT3_6B_short_desc_3",
   "wandb_project": "educated-ether",
   "comment": ""
 }
