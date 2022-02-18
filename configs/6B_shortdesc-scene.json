@@ -22,9 +22,9 @@
   "tpu_size": 8,
 
   "bucket": "educated-ether-gpt-j-6b",
-  "model_dir": "model-dir/3",
+  "model_dir": "model-dir/4",
 
-  "train_set": "short-desc.train.index",
+  "train_set": "shortdesc-scene.train.index",
   "val_set": {},
 
   "eval_harness_tasks": [
@@ -35,7 +35,7 @@
   "ckpt_every": 1,
   "keep_every": 10,
 
-  "name": "GPT3_6B_short_desc_3",
+  "name": "GPT3_6B_shortdesc_scene",
   "wandb_project": "educated-ether",
   "comment": ""
 }
