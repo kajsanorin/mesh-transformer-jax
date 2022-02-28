@@ -22,7 +22,7 @@
   "tpu_size": 8,
 
   "bucket": "educated-ether-gpt-j-6b",
-  "model_dir": "model-dir/6",
+  "model_dir": "model-dir/7",
 
   "train_set": "desc-scene-diaries12.train.index",
   "val_set": {},
@@ -35,7 +35,7 @@
   "ckpt_every": 1,
   "keep_every": 10,
 
-  "name": "GPT3_6B_desc_scene-diaries12_1",
+  "name": "GPT3_6B_desc_scene-diaries12_2",
   "wandb_project": "educated-ether",
   "comment": ""
 }
