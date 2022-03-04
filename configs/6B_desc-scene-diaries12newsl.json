@@ -13,18 +13,18 @@
   "gradient_accumulation_steps": 8,
 
   "warmup_steps": 1,
-  "anneal_steps": 9,
+  "anneal_steps": 10,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
-  "total_steps": 10,
+  "total_steps": 11,
 
   "tpu_size": 8,
 
   "bucket": "educated-ether-gpt-j-6b",
-  "model_dir": "model-dir/9",
+  "model_dir": "model-dir/10",
 
-  "train_set": "desc-scene-diaries12newsl.train.index",
+  "train_set": "desc-scene-diaries12newsl_2.train.index",
   "val_set": {},
 
   "eval_harness_tasks": [
@@ -35,7 +35,7 @@
   "ckpt_every": 1,
   "keep_every": 10,
 
-  "name": "GPT3_6B_desc_scene-diaries12newsl_1",
+  "name": "GPT3_6B_desc_scene-diaries12newsl_2",
   "wandb_project": "educated-ether",
   "comment": ""
 }
