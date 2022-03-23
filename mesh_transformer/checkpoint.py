@@ -36,7 +36,8 @@ def write(x, ckpt_dir):
     idx, i = x
     file_path = ckpt_dir + f"{idx}.npz"
     for _ in range(3):
-        with open(file_path, "wb") as f:
+        # with open(file_path, "wb") as f:
+        with open(file_path, "w") as f:
             np.savez(f, *i)
             # cloudpickle.dump(i, f)
             # print(f"written {idx} in {time.time() - start:.06}s")
