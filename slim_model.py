@@ -1,6 +1,7 @@
 import argparse
 import json
 import time
+import datetime
 
 import jax
 import numpy as np
@@ -12,6 +13,8 @@ from mesh_transformer.transformer_shard import CausalTransformer
 from smart_open import open
 
 from mesh_transformer.util import clip_by_global_norm, to_bf16, to_f16
+
+print('Started:', datetime.datetime.now())
 
 
 def parse_args():
@@ -36,6 +39,7 @@ if __name__ == "__main__":
 
     bucket = params["bucket"]
     model_dir = params["model_dir"]
+    print('model_dir:', model_dir)
 
     params["optimizer"] = optax.chain(
         optax.scale(1),
@@ -53,6 +57,8 @@ if __name__ == "__main__":
     mesh_shape = (jax.device_count() // cores_per_replica, cores_per_replica)
     devices = np.array(jax.devices()).reshape(mesh_shape)
 
+    print(f"gs://{bucket}/{model_dir}/meta.json")
+
     with open(f"gs://{bucket}/{model_dir}/meta.json", "r") as f:
         meta = json.load(f)
 
@@ -66,6 +72,7 @@ if __name__ == "__main__":
         network = CausalTransformer(params)
 
         start = time.time()
+        print(f"gs://{bucket}/{model_dir}/step_{ckpt_step}/")
         network.state = read_ckpt(network.state, f"gs://{bucket}/{model_dir}/step_{ckpt_step}/", devices.shape[1])
         print(f"network loaded in {time.time() - start:.06}s")
 
@@ -76,6 +83,8 @@ if __name__ == "__main__":
         print(f"network converted in {time.time() - start:.06}s")
 
         suffix = "_slim_f16" if args.f16 else "_slim"
+
+        print(f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/")
 
         for i in range(cores_per_replica):
             write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
