@@ -35,7 +35,7 @@ def write(x, ckpt_dir):
     # start = time.time()
     idx, i = x
     # file_path = ckpt_dir + f"{idx}.npz"
-    file_path = '/home/kajsa/data' + f"{idx}.npz"
+    file_path = '/home/kajsa/data/' + f"{idx}.npz"
     # for _ in range(3):
         # with open(file_path, "wb") as f:
     with open(file_path, "wb") as f:
