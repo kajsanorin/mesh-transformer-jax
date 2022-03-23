@@ -87,5 +87,6 @@ if __name__ == "__main__":
         print(f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/")
 
         for i in range(cores_per_replica):
-            write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
+            write_ckpt(network.state, "gs://educated-ether-test-us/model-dir/10_slim/step_11/", i)
+            # write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
             print(f"written shard {i}")
