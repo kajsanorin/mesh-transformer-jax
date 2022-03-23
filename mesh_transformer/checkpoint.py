@@ -46,8 +46,8 @@ def write(x, ckpt_dir):
     # except:
     #     print("save failed, trying again")
 
-    print("save failed 3 times, exiting")
-    raise Exception("save failed")
+    # print("save failed 3 times, exiting")
+    # raise Exception("save failed")
 
 
 def split(a, n):
